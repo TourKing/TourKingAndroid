@@ -3,6 +3,9 @@ package com.holly.tourking;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +15,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TabHost;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TabHost mTabHost;
+
+    private String section = "home";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         toolbar.setTitle("TourKing");
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -32,11 +41,49 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Set up TabHost
+        TabHost mTabHost = findViewById(R.id.tabHost);
+        this.mTabHost = mTabHost;
+        mTabHost.setup();
+
+        // Translating 'to' tab
+        TabHost.TabSpec mSpec = mTabHost.newTabSpec("To");
+        mSpec.setContent(R.id.to);
+        mSpec.setIndicator("To French");
+        mTabHost.addTab(mSpec);
+
+        // Tranlating 'from' tab
+        mSpec = mTabHost.newTabSpec("From");
+        mSpec.setContent(R.id.from);
+        mSpec.setIndicator("From French");
+        mTabHost.addTab(mSpec);
+
+        // View on To tab on launch
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content, ToPage.newInstance());
+        transaction.commit();
+
+        // Changing tabs
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener(){
+            @Override
+            public void onTabChanged(String tabId) {
+                if(tabId.equals("From")) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.content, FromPage.newInstance());
+                    transaction.commit();
+                }
+                if(tabId.equals("To")) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.content, ToPage.newInstance());
+                    transaction.commit();
+                }
+            }});
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -58,11 +105,6 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -70,24 +112,46 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        if (id == R.id.nav_restaurant) {
-            // Handle the camera action
-        } else if (id == R.id.nav_bar) {
+        switch (item.getItemId()){
 
-        } else if (id == R.id.nav_transport) {
-
-        } else if (id == R.id.nav_supermarket) {
-
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_attractions) {
-
+            case R.id.nav_home:
+                this.section = "home";
+                break;
+            case R.id.nav_transport:
+                this.section = "transport";
+                break;
+            case R.id.nav_restaurant:
+                this.section = "restaurant";
+                break;
+            case R.id.nav_bar:
+                this.section = "bar";
+                break;
+            case R.id.nav_attractions:
+                this.section = "attractions";
+                break;
+            case R.id.nav_supermarket:
+                this.section = "supermarket";
+                break;
+            case R.id.nav_settings:
+                this.section = "settings";
+                break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        // hide drawer
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        // move to To tab of selected section
+        mTabHost.setCurrentTab(0);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content, ToPage.newInstance());
+        transaction.commit();
+
         return true;
+    }
+
+    public String getSection(){
+        return this.section;
     }
 }
