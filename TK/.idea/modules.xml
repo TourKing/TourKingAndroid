@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TK.iml" filepath="$PROJECT_DIR$/TK.iml" />
+      <module fileurl="file://C:\tk-app\TK\TK.iml" filepath="C:\tk-app\TK\TK.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\tk-app\TK\app\app.iml" filepath="C:\tk-app\TK\app\app.iml" />
     </modules>
   </component>
 </project>

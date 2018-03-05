@@ -8,4 +8,12 @@
     tools:context="com.holly.tourking.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <Button
+        android:id="@+id/translate"
+        android:layout_width="364dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:text="Translate"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp" />
 </android.support.constraint.ConstraintLayout>
