@@ -1,0 +1,4 @@
+#Tue Feb 27 11:26:31 GMT 2018
+base.0=/Users/craig/Documents/MobHCI/tk-app/tourking/app/build/intermediates/transforms/dexMerger/debug/6
+path.0=classes.dex
+renamed.0=classes.dex
