@@ -1,6 +1,7 @@
 package com.holly.tourking;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -32,6 +33,8 @@ public class popTranslate extends Activity {
     EditText MyInputText;
     Button MyTranslateButton;
     TextView MyOutputText;
+
+    Translate translate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +80,22 @@ public class popTranslate extends Activity {
         }
     };
 
+    public Thread translateThread = new Thread(new Runnable () {
+        @Override
+        public void run() {
+            try{
+                translate = TranslateOptions.getDefaultInstance().getService();
+            }
+            catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    });
+
+
     public String textTranslate(String input, String source, String target) throws Exception {
-        // Instantiates a client
-        Translate translate = TranslateOptions.getDefaultInstance().getService();
+
+       translateThread.start();
 
         Translation translation =
                 translate.translate(
@@ -89,7 +105,5 @@ public class popTranslate extends Activity {
 
         return translation.getTranslatedText();
     }
-
-
 }
 
