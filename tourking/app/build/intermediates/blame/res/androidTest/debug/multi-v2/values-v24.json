@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "/Users/craig/Documents/MobHCI/tk-app/tourking/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/ec026cc78ba9b9bc44e8f98c8bfd9bea/res/values-v24/values-v24.xml",
+=======
+            "outputFile": "C:\\tk-app\\tourking\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\337262e0900e0e7e91042d1f72cb7b76\\res\\values-v24\\values-v24.xml",
+>>>>>>> cj
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -14,7 +21,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/ee63be4de6bd8e854fa8edee82eb18ad/res/values-v24/values-v24.xml",
+=======
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\5ecc51e4e29141387a9d08ae8e3fea78\\res\\values-v24\\values-v24.xml",
+>>>>>>> cj
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

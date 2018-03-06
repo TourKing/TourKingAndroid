@@ -1,10 +1,27 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "/Users/craig/Documents/MobHCI/tk-app/tourking/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/6aec41d11bdbbc55e067b7346ea5c85d/res/values-land/values-land.xml",
+=======
+            "outputFile": "C:\\tk-app\\tourking\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-land\\values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\337262e0900e0e7e91042d1f72cb7b76\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,125,189,260",
+                        "endColumns": "69,63,70,67",
+                        "endOffsets": "120,184,255,323"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\ed1e8da1204dc5b0697045fe039b346c\\res\\values-land\\values-land.xml",
+>>>>>>> cj
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,6 +38,7 @@
                         "endColumns": "12",
                         "endOffsets": "505"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/ec026cc78ba9b9bc44e8f98c8bfd9bea/res/values-land/values-land.xml",
@@ -31,6 +49,8 @@
                         "endColumns": "69,63,70,67",
                         "endOffsets": "120,184,255,323"
                     }
+=======
+>>>>>>> cj
                 }
             ]
         }

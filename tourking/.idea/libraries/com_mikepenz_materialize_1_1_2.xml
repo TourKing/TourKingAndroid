@@ -1,8 +1,13 @@
 <component name="libraryTable">
   <library name="com.mikepenz:materialize-1.1.2">
     <CLASSES>
+<<<<<<< HEAD
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/66c966cc5299383e29f235cc6a4c487b/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/66c966cc5299383e29f235cc6a4c487b/jars/classes.jar!/" />
+=======
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/0ceff81d9adeb7500229d815a347bc2e/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/0ceff81d9adeb7500229d815a347bc2e/jars/classes.jar!/" />
+>>>>>>> cj
     </CLASSES>
     <JAVADOC />
     <SOURCES>

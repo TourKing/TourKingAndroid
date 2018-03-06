@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "/Users/craig/Documents/MobHCI/tk-app/tourking/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/66c966cc5299383e29f235cc6a4c487b/res/values-night-v8/values-night-v8.xml",
+=======
+            "outputFile": "C:\\tk-app\\tourking\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\materialize-1.1.2.aar\\0ceff81d9adeb7500229d815a347bc2e\\res\\values-night-v8\\values-night-v8.xml",
+>>>>>>> cj
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +21,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/ec026cc78ba9b9bc44e8f98c8bfd9bea/res/values-night-v8/values-night-v8.xml",
+=======
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\337262e0900e0e7e91042d1f72cb7b76\\res\\values-night-v8\\values-night-v8.xml",
+>>>>>>> cj
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

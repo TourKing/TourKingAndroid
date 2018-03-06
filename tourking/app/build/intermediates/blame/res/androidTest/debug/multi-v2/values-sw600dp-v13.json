@@ -1,6 +1,7 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "/Users/craig/Documents/MobHCI/tk-app/tourking/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
@@ -15,6 +16,12 @@
                 },
                 {
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/6aec41d11bdbbc55e067b7346ea5c85d/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+=======
+            "outputFile": "C:\\tk-app\\tourking\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\ed1e8da1204dc5b0697045fe039b346c\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+>>>>>>> cj
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -33,6 +40,7 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/materialdrawer-6.0.6.aar/3a981ea8595908a24dfa40e2734a2804/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2",
@@ -51,6 +59,19 @@
                 },
                 {
                     "source": "/Users/craig/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/66c966cc5299383e29f235cc6a4c487b/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+=======
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\337262e0900e0e7e91042d1f72cb7b76\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\materialize-1.1.2.aar\\0ceff81d9adeb7500229d815a347bc2e\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+>>>>>>> cj
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -65,6 +86,26 @@
                         "endColumns": "54",
                         "endOffsets": "1284"
                     }
+<<<<<<< HEAD
+=======
+                },
+                {
+                    "source": "C:\\Users\\Connor\\.gradle\\caches\\transforms-1\\files-1.1\\materialdrawer-6.0.6.aar\\3f3d9cfdfab0b03b1528aae3df8b0b32\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "63",
+                        "endOffsets": "114"
+                    },
+                    "to": {
+                        "startLines": "18",
+                        "startColumns": "4",
+                        "startOffsets": "1170",
+                        "endColumns": "63",
+                        "endOffsets": "1229"
+                    }
+>>>>>>> cj
                 }
             ]
         }
