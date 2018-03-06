@@ -8,13 +8,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-// Imports the Google Cloud client library
+import com.google.cloud.translate.Detection;
 import com.google.cloud.translate.Language;
 import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.Translate.LanguageListOption;
 import com.google.cloud.translate.Translate.TranslateOption;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
+import com.google.common.collect.ImmutableList;
+import java.io.PrintStream;
+import java.util.List;
+import java.util.Optional;
 
+import java.io.PrintStream;
+
+// Imports the Google Cloud client library
 /**
  * Created by Connor on 05/03/2018.
  */
@@ -58,10 +66,10 @@ public class popTranslate extends Activity {
             InputString = MyInputText.getText().toString();
 
             try {
-                OutputString = textTranslate(InputString, "fr");
+                OutputString = textTranslate(InputString, "en", "fr");
             } catch (Exception ex) {
                 ex.printStackTrace();
-                OutputString = "Error";
+                OutputString = InputString;
             }
 
             MyOutputText.setText(OutputString);
@@ -69,29 +77,19 @@ public class popTranslate extends Activity {
         }
     };
 
-    public String textTranslate(String text, String target) throws Exception {
+    public String textTranslate(String input, String source, String target) throws Exception {
         // Instantiates a client
         Translate translate = TranslateOptions.getDefaultInstance().getService();
 
-        // The text to translate
-        text = "Hello, world!";
-        target = "ru";
-
-        String output;
-
-        // Translates some text into Russian
         Translation translation =
                 translate.translate(
-                        text,
-                        TranslateOption.sourceLanguage("en"),
+                        input,
+                        TranslateOption.sourceLanguage(source),
                         TranslateOption.targetLanguage(target));
 
-
-        output = translation.getTranslatedText();
-
-        System.out.printf("Text: %s%n", text);
-        System.out.printf("Translation: %s%n", output);
-
-        return output;
+        return translation.getTranslatedText();
     }
+
+
 }
+
