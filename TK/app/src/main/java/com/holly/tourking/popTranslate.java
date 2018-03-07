@@ -3,7 +3,10 @@ package com.holly.tourking;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.StrictMode;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,10 +75,9 @@ public class popTranslate extends Activity {
                 OutputString = textTranslate(InputString, "en", "fr");
             } catch (Exception ex) {
                 ex.printStackTrace();
-                OutputString = InputString;
+                OutputString = "There was an error trying to translate your phrase. Please ensure you are connected to the internet.";
+                MyOutputText.setText(OutputString);
             }
-
-            MyOutputText.setText(OutputString);
 
         }
     };
@@ -93,17 +95,35 @@ public class popTranslate extends Activity {
     });
 
 
-    public String textTranslate(String input, String source, String target) throws Exception {
+    public String textTranslate(final String input, String source, final String target) throws Exception {
 
-       translateThread.start();
+        final String GOOGLE_API_KEY = "YOUR KEY GOES HERE";
 
-        Translation translation =
-                translate.translate(
-                        input,
-                        TranslateOption.sourceLanguage(source),
-                        TranslateOption.targetLanguage(target));
+            MyOutputText = findViewById(R.id.translate_output);
+            final Handler textViewHandler = new Handler();
+            String output = "";
 
-        return translation.getTranslatedText();
-    }
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... params) {
+                    Translate translate = TranslateOptions.newBuilder().setApiKey(GOOGLE_API_KEY).build().getService();
+                    Log.i("Response:","works");
+                    final Translation translation =
+                            translate.translate(input,
+                                    Translate.TranslateOption.targetLanguage(target));
+                    textViewHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (MyOutputText != null) {
+                                MyOutputText.setText(translation.getTranslatedText());
+                            }
+                        }
+                    });
+                    return null;
+                }
+            }.execute();
+
+            return output;
+        }
 }
 
