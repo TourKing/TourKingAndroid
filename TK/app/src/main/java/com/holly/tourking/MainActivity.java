@@ -81,13 +81,7 @@ public class MainActivity extends AppCompatActivity
                     transaction.commit();
                 }
             }});
-        final Button button = findViewById(R.id.translate);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                startActivity(new Intent(MainActivity.this, popTranslate.class));
-            }
-        });
+
     }
 
     @Override

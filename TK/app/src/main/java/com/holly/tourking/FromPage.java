@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,31 +29,44 @@ public class FromPage extends Fragment {
 
         View rootView = inflater.inflate(R.layout.phrases_page, container, false);
 
+        CardView cv1 = rootView.findViewById(R.id.cv1);
+        TextView phrase1 = rootView.findViewById(R.id.phrase1);
+        TextView translation1 = rootView.findViewById(R.id.translation1);
+        //TextView phon1 = rootView.findViewById(R.id.phonetic1);
 
-        TextView tv1 = rootView.findViewById(R.id.tv1);
-        TextView tv2 = rootView.findViewById(R.id.tv2);
 
         switch (((MainActivity)getActivity()).getSection()){
 
             case "home":
-                tv1.setText("From Home 1");
-                tv2.setText("From Home 2");
+                phrase1.setText("Bonjour");
+                translation1.setText("Hello");
+             //   phon1.setText("phonetic");
+
+
                 break;
             case "transport":
-                tv1.setText("From Transport 1");
-                tv2.setText("From Transport 2");
+                phrase1.setText("Bonjour");
+                translation1.setText("Hello");
+            //    phon1.setText("phonetic");
+
                 break;
             case "restaurant":
-                tv1.setText("From Restaurant 1");
-                tv2.setText("From Restaurant 2");
+                phrase1.setText("Bonjour");
+                translation1.setText("Hello");
+            //    phon1.setText("phonetic");
+
                 break;
             case "attractions":
-                tv1.setText("From Attractions 1");
-                tv2.setText("From Attractions 2");
-                break;
+                phrase1.setText("Bonjour");
+                translation1.setText("Hello");
+            //    phon1.setText("phonetic");
+
+            break;
             case "supermarket":
-                tv1.setText("From Supermarket 1");
-                tv2.setText("From Supermarket 2");
+                phrase1.setText("Bonjour");
+                translation1.setText("Hello");
+             //   phon1.setText("phonetic");
+
                 break;
         }
 
