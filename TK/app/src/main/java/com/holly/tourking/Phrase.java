@@ -8,22 +8,22 @@ import java.util.List;
  */
 
 public class Phrase {
-    private String phrase;
-    private String translation;
-    private String phonetic;
+    public String phrase;
+    public String translation;
+    public String phonetic;
 
     Phrase(String phrase, String translation, String phonetic) {
         this.phrase = phrase;
         this.translation = translation;
         this.phonetic = phonetic;
     }
-    private List<Phrase> HomePhrases;
-    private List<Phrase> Transport;
-    private List<Phrase> Restaurant;
-    private List<Phrase> Attractions;
-    private List<Phrase> SuperMarket;
+    public static List<Phrase> HomePhrases;
+    public static List<Phrase> Transport;
+    public static List<Phrase> Restaurant;
+    public static List<Phrase> Attractions;
+    public static List<Phrase> SuperMarket;
 
-    private void initialiseData(){
+    public static void initialiseData(){
         HomePhrases = new ArrayList<>();
         HomePhrases.add(new Phrase("Hello", "Bonjour", "(phonetic)"));
         HomePhrases.add(new Phrase("I would like...", "Je voudrais...", "(phonetic)"));

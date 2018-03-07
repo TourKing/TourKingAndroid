@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class FromPage extends Fragment {
 
     public FromPage() {
@@ -41,59 +43,66 @@ public class FromPage extends Fragment {
         TextView phrase3 = rootView.findViewById(R.id.phrase3);
         TextView translation3 = rootView.findViewById(R.id.translation3);
 
+        List<Phrase> phrases;
+        Phrase.initialiseData();
+
         switch (((MainActivity)getActivity()).getSection()){
 
             case "home":
-                phrase1.setText("Bonjour");
-                translation1.setText("Hello");
+                phrases = Phrase.HomePhrases;
+                phrase1.setText(phrases.get(0).translation);
+                translation1.setText(phrases.get(0).phrase);
 
-                phrase2.setText("Je ne comprends pas");
-                translation2.setText("I don't understand");
+                phrase2.setText(phrases.get(1).translation);
+                translation2.setText(phrases.get(1).phrase);
 
-                phrase3.setText("Pouvez-vous répéter, s’il vous plaît.");
-                translation3.setText("Could you repeat that please?");
+                phrase3.setText(phrases.get(2).translation);
+                translation3.setText(phrases.get(2).phrase);
 
                 break;
             case "transport":
-                phrase1.setText("Bonjour");
-                translation1.setText("Hello");
+                phrases = Phrase.Transport;
+                phrase1.setText(phrases.get(0).translation);
+                translation1.setText(phrases.get(0).phrase);
 
-                phrase2.setText("Je ne comprends pas");
-                translation2.setText("I don't understand");
+                phrase2.setText(phrases.get(1).translation);
+                translation2.setText(phrases.get(1).phrase);
 
-                phrase3.setText("Pouvez-vous répéter, s’il vous plaît.");
-                translation3.setText("Could you repeat that please?");
+                phrase3.setText(phrases.get(2).translation);
+                translation3.setText(phrases.get(2).phrase);
                 break;
             case "restaurant":
-                phrase1.setText("Bonjour");
-                translation1.setText("Hello");
+                phrases = Phrase.Restaurant;
+                phrase1.setText(phrases.get(0).translation);
+                translation1.setText(phrases.get(0).phrase);
 
-                phrase2.setText("Je ne comprends pas");
-                translation2.setText("I don't understand");
+                phrase2.setText(phrases.get(1).translation);
+                translation2.setText(phrases.get(1).phrase);
 
-                phrase3.setText("Pouvez-vous répéter, s’il vous plaît.");
-                translation3.setText("Could you repeat that please?");
+                phrase3.setText(phrases.get(2).translation);
+                translation3.setText(phrases.get(2).phrase);
                 break;
             case "attractions":
-                phrase1.setText("Bonjour");
-                translation1.setText("Hello");
+                phrases = Phrase.Attractions;
+                phrase1.setText(phrases.get(0).translation);
+                translation1.setText(phrases.get(0).phrase);
 
-                phrase2.setText("Je ne comprends pas");
-                translation2.setText("I don't understand");
+                phrase2.setText(phrases.get(1).translation);
+                translation2.setText(phrases.get(1).phrase);
 
-                phrase3.setText("Pouvez-vous répéter, s’il vous plaît.");
-                translation3.setText("Could you repeat that please?");
-
-            break;
+                phrase3.setText(phrases.get(2).translation);
+                translation3.setText(phrases.get(2).phrase);
+                break;
             case "supermarket":
-                phrase1.setText("Bonjour");
-                translation1.setText("Hello");
+                phrases = Phrase.SuperMarket;
+                phrase1.setText(phrases.get(0).translation);
+                translation1.setText(phrases.get(0).phrase);
 
-                phrase2.setText("Je ne comprends pas");
-                translation2.setText("I don't understand");
+                phrase2.setText(phrases.get(1).translation);
+                translation2.setText(phrases.get(1).phrase);
 
-                phrase3.setText("Pouvez-vous répéter, s’il vous plaît.");
-                translation3.setText("Could you repeat that please?");
+                phrase3.setText(phrases.get(2).translation);
+                translation3.setText(phrases.get(2).phrase);
                 break;
         }
 
