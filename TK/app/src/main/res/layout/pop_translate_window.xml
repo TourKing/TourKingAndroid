@@ -21,6 +21,7 @@
         android:background="@drawable/input_text"
         android:ems="10"
         android:gravity="top|left"
+
         android:inputType="textMultiLine" />
 
     <TextView
@@ -42,9 +43,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="18dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:text="Translate Text" />
+        android:text="@string/translate_text" />
 
 </RelativeLayout>
