@@ -36,42 +36,70 @@ public class ToPage extends Fragment {
         CardView cv1 = rootView.findViewById(R.id.cv1);
         TextView phrase1 = rootView.findViewById(R.id.phrase1);
         TextView translation1 = rootView.findViewById(R.id.translation1);
-        //TextView phon1 = rootView.findViewById(R.id.phonetic1);
 
 
+        CardView cv2 = rootView.findViewById(R.id.cv2);
+        TextView phrase2 = rootView.findViewById(R.id.phrase2);
+        TextView translation2 = rootView.findViewById(R.id.translation2);
+
+        CardView cv3 = rootView.findViewById(R.id.cv3);
+        TextView phrase3 = rootView.findViewById(R.id.phrase3);
+        TextView translation3 = rootView.findViewById(R.id.translation3);
 
         switch (((MainActivity)getActivity()).getSection()){
 
             case "home":
                 phrase1.setText("Hello");
                 translation1.setText("Bonjour");
-                //phon1.setText("phonetic");
 
+                phrase2.setText("I don't understand");
+                translation2.setText("Je ne comprends pas");
+
+                phrase3.setText("Could you repeat that please?");
+                translation3.setText("Pouvez-vous répéter, s’il vous plaît.");
 
                 break;
             case "transport":
                 phrase1.setText("Hello");
                 translation1.setText("Bonjour");
-                //phon1.setText("phonetic");
+
+                phrase2.setText("I don't understand");
+                translation2.setText("Je ne comprends pas");
+
+                phrase3.setText("Could you repeat that please?");
+                translation3.setText("Pouvez-vous répéter, s’il vous plaît.");
 
                 break;
             case "restaurant":
                 phrase1.setText("Hello");
                 translation1.setText("Bonjour");
-               // phon1.setText("phonetic");
 
+                phrase2.setText("I don't understand");
+                translation2.setText("Je ne comprends pas");
+
+                phrase3.setText("Could you repeat that please?");
+                translation3.setText("Pouvez-vous répéter, s’il vous plaît.");
                 break;
             case "attractions":
                 phrase1.setText("Hello");
                 translation1.setText("Bonjour");
-               // phon1.setText("phonetic");
+
+                phrase2.setText("I don't understand");
+                translation2.setText("Je ne comprends pas");
+
+                phrase3.setText("Could you repeat that please?");
+                translation3.setText("Pouvez-vous répéter, s’il vous plaît.");
 
                 break;
             case "supermarket":
                 phrase1.setText("Hello");
                 translation1.setText("Bonjour");
-               // phon1.setText("phonetic");
 
+                phrase2.setText("I don't understand");
+                translation2.setText("Je ne comprends pas");
+
+                phrase3.setText("Could you repeat that please?");
+                translation3.setText("Pouvez-vous répéter, s’il vous plaît.");
                 break;
         }
 
