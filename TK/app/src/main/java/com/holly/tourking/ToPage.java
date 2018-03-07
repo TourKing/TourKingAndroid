@@ -33,6 +33,7 @@ public class ToPage extends Fragment {
         final Button button = rootView.findViewById(R.id.translate);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 // Code here executes on main thread after user presses button
                 startActivity(new Intent(getActivity(), popTranslate.class));
             }
