@@ -49,6 +49,28 @@
         <item>-1</item>
     </string-array>
 
+    <string-array name="to_language_key">
+        <item>English</item>
+        <item>French</item>
+        <item>German</item>
+    </string-array>
+    <string-array name="to_language_values">
+        <item>en</item>
+        <item>fr</item>
+        <item>de</item>
+    </string-array>
+
+    <string-array name="from_language_key">
+        <item>English</item>
+        <item>French</item>
+        <item>German</item>
+    </string-array>
+    <string-array name="from_language_values">
+        <item>en</item>
+        <item>fr</item>
+        <item>de</item>
+    </string-array>
+
     <!-- Example settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>
 

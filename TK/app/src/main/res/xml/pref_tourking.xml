@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ListPreference
+        android:defaultValue="en"
+        android:entries="@array/to_language_key"
+        android:entryValues="@array/to_language_values"
+        android:key="to_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="Current Language" />
+
+    <ListPreference
+        android:defaultValue="fr"
+        android:entries="@array/from_language_key"
+        android:entryValues="@array/from_language_values"
+        android:key="from_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="Translated Language" />
+
 </PreferenceScreen>

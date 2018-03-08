@@ -3,6 +3,7 @@ package com.holly.tourking;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -33,6 +34,12 @@ import java.util.List;
  * API Guide</a> for more information on developing a Settings UI.
  */
 public class SettingsActivity extends AppCompatPreferenceActivity {
+
+    public String currentLanguage = "English";
+    public String currentCode = "en";
+
+    public String translateLanguage = "French";
+    public String translateCode = "fr";
 
     /**
      * A preference value change listener that updates the preference's summary
@@ -178,8 +185,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            //bindPreferenceSummaryToValue(findPreference("example_text"));
-            //bindPreferenceSummaryToValue(findPreference("example_list"));
+            bindPreferenceSummaryToValue(findPreference("to_list"));
+            bindPreferenceSummaryToValue(findPreference("from_list"));
+
+            //SharedPreferences spf = PreferenceManager.getDefaultSharedPreferences();
         }
 
         @Override
