@@ -1,5 +1,13 @@
 package com.holly.tourking;
 
+import android.os.AsyncTask;
+import android.os.Handler;
+import android.util.Log;
+
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +30,8 @@ public class Phrase {
     public static List<Phrase> Restaurant;
     public static List<Phrase> Attractions;
     public static List<Phrase> SuperMarket;
+
+    ArrayList<String> translatedList = new ArrayList<>();
 
     public static void initialiseData(){
         HomePhrases = new ArrayList<>();
@@ -61,6 +71,46 @@ public class Phrase {
 
 
     }
+
+    public String textTranslate(final String input, String source, final String target) throws Exception {
+
+        final String GOOGLE_API_KEY = "AIzaSyDfVhfHmQWt6avT4P2hRg0rulJ-tr1Dik4";
+
+        final Handler textViewHandler = new Handler();
+        String output = "";
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                Translate translate = TranslateOptions.newBuilder().setApiKey(GOOGLE_API_KEY).build().getService();
+                Log.i("Response:","works");
+                final Translation translation =
+                        translate.translate(input,
+                                Translate.TranslateOption.targetLanguage(target));
+                textViewHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                            String translated = translation.getTranslatedText().replace("&amp;","&")
+                                    .replace("&lt;","<")
+                                    .replace("&gt;",">")
+                                    .replace("&quot;","\"");
+                            setString(translated);
+
+                    }
+                });
+                return null;
+            }
+        }.execute();
+
+        return output;
+    }
+
+    private Void setString(String translated) {
+        translatedList.add(translated);
+        return null;
+    }
+
+
 
 
 }
