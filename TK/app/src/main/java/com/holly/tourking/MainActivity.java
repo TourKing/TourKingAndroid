@@ -37,6 +37,15 @@ public class MainActivity extends AppCompatActivity
         toolbar.setTitle("TourKing");
         setSupportActionBar(toolbar);
 
+
+        final Button button = findViewById(R.id.translate);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                startActivity(new Intent(MainActivity.this, popTranslate.class));
+            }
+        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

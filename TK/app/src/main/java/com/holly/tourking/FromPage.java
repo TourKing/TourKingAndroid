@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,83 +31,45 @@ public class FromPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.phrases_page, container, false);
+       //View rootView = inflater.inflate(R.layout.phrases_page, container, false);
 
-        CardView cv1 = rootView.findViewById(R.id.cv1);
-        TextView phrase1 = rootView.findViewById(R.id.phrase1);
-        TextView translation1 = rootView.findViewById(R.id.translation1);
+        RecyclerView rv = new RecyclerView(getContext());
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        CardView cv2 = rootView.findViewById(R.id.cv2);
-        TextView phrase2 = rootView.findViewById(R.id.phrase2);
-        TextView translation2 = rootView.findViewById(R.id.translation2);
-
-        CardView cv3 = rootView.findViewById(R.id.cv3);
-        TextView phrase3 = rootView.findViewById(R.id.phrase3);
-        TextView translation3 = rootView.findViewById(R.id.translation3);
+        /*CardView cv1 = rootView.findViewById(R.id.cv);
+        TextView phrase1 = rootView.findViewById(R.id.phrase);
+        TextView translation1 = rootView.findViewById(R.id.translation);*/
 
         List<Phrase> phrases;
         Phrase.initialiseData();
+        phrases = Phrase.HomePhrases;
+
+        rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
 
         switch (((MainActivity)getActivity()).getSection()){
 
             case "home":
                 phrases = Phrase.HomePhrases;
-                phrase1.setText(phrases.get(0).translation);
-                translation1.setText(phrases.get(0).phrase);
-
-                phrase2.setText(phrases.get(1).translation);
-                translation2.setText(phrases.get(1).phrase);
-
-                phrase3.setText(phrases.get(2).translation);
-                translation3.setText(phrases.get(2).phrase);
-
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "transport":
                 phrases = Phrase.Transport;
-                phrase1.setText(phrases.get(0).translation);
-                translation1.setText(phrases.get(0).phrase);
-
-                phrase2.setText(phrases.get(1).translation);
-                translation2.setText(phrases.get(1).phrase);
-
-                phrase3.setText(phrases.get(2).translation);
-                translation3.setText(phrases.get(2).phrase);
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "restaurant":
                 phrases = Phrase.Restaurant;
-                phrase1.setText(phrases.get(0).translation);
-                translation1.setText(phrases.get(0).phrase);
-
-                phrase2.setText(phrases.get(1).translation);
-                translation2.setText(phrases.get(1).phrase);
-
-                phrase3.setText(phrases.get(2).translation);
-                translation3.setText(phrases.get(2).phrase);
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "attractions":
                 phrases = Phrase.Attractions;
-                phrase1.setText(phrases.get(0).translation);
-                translation1.setText(phrases.get(0).phrase);
-
-                phrase2.setText(phrases.get(1).translation);
-                translation2.setText(phrases.get(1).phrase);
-
-                phrase3.setText(phrases.get(2).translation);
-                translation3.setText(phrases.get(2).phrase);
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "supermarket":
                 phrases = Phrase.SuperMarket;
-                phrase1.setText(phrases.get(0).translation);
-                translation1.setText(phrases.get(0).phrase);
-
-                phrase2.setText(phrases.get(1).translation);
-                translation2.setText(phrases.get(1).phrase);
-
-                phrase3.setText(phrases.get(2).translation);
-                translation3.setText(phrases.get(2).phrase);
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
         }
 
-        return rootView;
+        return rv;
     }
 }
