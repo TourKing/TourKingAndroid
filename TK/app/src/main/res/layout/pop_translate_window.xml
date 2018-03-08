@@ -80,7 +80,7 @@
         android:layout_alignLeft="@+id/listenButton"
         android:layout_alignStart="@+id/listenButton"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/speaker"
+        android:background="@drawable/speaker2"
         android:text="@string/speak_text"
         android:textColor="#FFFFFF"
         android:textColorHint="#eeeeee" />

@@ -8,6 +8,4 @@
     tools:context="com.holly.tourking.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:id="@+id/constraintLayout">
-
-
 </android.support.constraint.ConstraintLayout>
