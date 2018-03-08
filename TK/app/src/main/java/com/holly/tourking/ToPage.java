@@ -34,40 +34,11 @@ public class ToPage extends Fragment {
         RecyclerView rv = new RecyclerView(getContext());
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        /*CardView cv1 = rootView.findViewById(R.id.cv);
-        TextView phrase1 = rootView.findViewById(R.id.phrase);
-        TextView translation1 = rootView.findViewById(R.id.translation);*/
-
         List<Phrase> phrases;
-        Phrase.initialiseData();
-        phrases = Phrase.HomePhrases;
+        phrases = Phrase.initialiseData(1, ((MainActivity)getActivity()).getSection());
 
         rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
-
-        switch (((MainActivity)getActivity()).getSection()){
-
-            case "home":
-                phrases = Phrase.HomePhrases;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
-                break;
-            case "transport":
-                phrases = Phrase.Transport;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
-                break;
-            case "restaurant":
-                phrases = Phrase.Restaurant;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
-                break;
-            case "attractions":
-                phrases = Phrase.Attractions;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
-                break;
-            case "supermarket":
-                phrases = Phrase.SuperMarket;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
-                break;
-        }
-
+        
         return rv;
     }
 }

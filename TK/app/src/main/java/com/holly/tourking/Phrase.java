@@ -18,97 +18,111 @@ import java.util.List;
 public class Phrase {
     public String phrase;
     public String translation;
-    public String phonetic;
 
-    Phrase(String phrase, String translation, String phonetic) {
+    Phrase(String phrase, String translation) {
         this.phrase = phrase;
         this.translation = translation;
-        this.phonetic = phonetic;
     }
-    public static List<Phrase> HomePhrases;
-    public static List<Phrase> Transport;
-    public static List<Phrase> Restaurant;
-    public static List<Phrase> Attractions;
-    public static List<Phrase> SuperMarket;
+    public static ArrayList<Phrase> phrases;
 
-    ArrayList<String> translatedList = new ArrayList<>();
-
-    public static void initialiseData(){
-        HomePhrases = new ArrayList<>();
-        HomePhrases.add(new Phrase("Hello", "Bonjour", "(phonetic)"));
-        HomePhrases.add(new Phrase("I would like...", "Je voudrais...", "(phonetic)"));
-        HomePhrases.add(new Phrase("I don't understand", "Je ne comprends pas", "(phonetic)"));
-        HomePhrases.add(new Phrase("Could you repeat that please?", "Pouvez-vous répéter, s’il vous plaît.", "(phonetic)"));
-        HomePhrases.add(new Phrase("Do you speak English?", "Parlez vous anglais?", "(phonetic)"));
-
-        Transport = new ArrayList<>();
-        Transport.add(new Phrase("A car", "Une voiture", "(phonetic)"));
-        Transport.add(new Phrase("The train station", "La gare", "(phonetic)"));
-        Transport.add(new Phrase("The airport", "L'aeroport", "(phonetic)"));
-        Transport.add(new Phrase("We're lost", "Nous sommes perdus", "(phonetic)"));
-        Transport.add(new Phrase("We would like to go...", "Nous voulons aller à...", "(phonetic)"));
-
-        Restaurant = new ArrayList<>();
-        Restaurant.add(new Phrase("I would like...", "Je voudrais...", "(phonetic)"));
-        Restaurant.add(new Phrase("With cheese", "Au gratin", "(phonetic)"));
-        Restaurant.add(new Phrase("Enjoy your food", "Bon apétit", "(phonetic)"));
-        Restaurant.add(new Phrase("A table for two / four people", "Une table pour deux / quatre personnes. ", "(phonetic)"));
-        Restaurant.add(new Phrase("Could I have the bill please?", "L’addition, s’il vous plaît", "(phonetic)"));
-
-        Attractions = new ArrayList<>();
-        Attractions.add(new Phrase("I’m looking for", "Je cherche", "(phonetic)"));
-        Attractions.add(new Phrase("Where is...", "Ou est...", "(phonetic)"));
-        Attractions.add(new Phrase("What time does it shut?", "A quelle heure est-ce que cela ferme?", "(phonetic)"));
-        Attractions.add(new Phrase("What's the weather going to be like today?", "Quel temps va-t-il faire aujourd’hui? ", "(phonetic)"));
-        Attractions.add(new Phrase("Do you speak English?", "Parlez vous anglais?", "(phonetic)"));
-
-        SuperMarket = new ArrayList<>();
-        SuperMarket.add(new Phrase("Price", "Prix", "(phonetic)"));
-        SuperMarket.add(new Phrase("Credit card", "Carte de crédit", "(phonetic)"));
-        SuperMarket.add(new Phrase("To buy", "Achete", "(phonetic)"));
-        SuperMarket.add(new Phrase("How much is it?", "Combien ça coûte", "(phonetic)"));
-        SuperMarket.add(new Phrase("Thank you", "Merci", "(phonetic)"));
-
-
+    public static ArrayList<Phrase> createPhraseList(String[] s1, String[] s2){
+        phrases = new ArrayList<>();
+        for(int i = 0; i < s1.length; i++){
+            System.out.println("eng: " + s1[i]);
+            System.out.println("for: " + s2[i]);
+            phrases.add(new Phrase(s1[i], s2[i]));
+        }
+        return phrases;
     }
 
-    public String textTranslate(final String input, String source, final String target) throws Exception {
 
-        final String GOOGLE_API_KEY = "AIzaSyDfVhfHmQWt6avT4P2hRg0rulJ-tr1Dik4";
+    static String[] engHome = {"Hello", "Please", "Thank you", "Good-bye",
+            "I would like...", "I don't understand", "Excuse me", "Where is the...?",
+            "Could you repeat that please?", "Do you speak English?"};
+    static String[] frHome = {"Bonjour", "S’il vous plaît", "Merci", "Au revoir",
+            "Je voudrais...", "Je ne comprends pas", "Excusez-moi", "où est le/la...?",
+            "Pouvez-vous répéter, s’il vous plaît.", "Parlez vous anglais?"
+    };
+    static String[] gerHome = {"Guten Tag", "Bitte", "Danke", "Auf Wiedersehen",
+            "Ich möchte", "Ich verstehe nicht", "Entschuldigen Sie mich",
+            "Wo ist der/die/das", "Könntest du das bitte wiederholen",
+            "Sprichst du Englisch"};
 
-        final Handler textViewHandler = new Handler();
-        String output = "";
 
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                Translate translate = TranslateOptions.newBuilder().setApiKey(GOOGLE_API_KEY).build().getService();
-                Log.i("Response:","works");
-                final Translation translation =
-                        translate.translate(input,
-                                Translate.TranslateOption.targetLanguage(target));
-                textViewHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                            String translated = translation.getTranslatedText().replace("&amp;","&")
-                                    .replace("&lt;","<")
-                                    .replace("&gt;",">")
-                                    .replace("&quot;","\"");
-                            setString(translated);
+    static  String[] engTransport = {"The train station", "I am lost", "I would like to go..",
+            "The airport", "A car", "One ticket please"};
+    static String[] frTransport = {"La gare", "Je suis perdu", "Je voudrais aller à... ",
+            "L'aeroport", "Une voiture", "Un billet s'il vous plaît"};
+    static String[] gerTransport = {"Der Bahnhof", "ich bin verloren", "ich würde gerne gehen",
+            "Der Flughafen", "Einen Wagen", "Ein Ticket, bitte"};
 
-                    }
-                });
-                return null;
-            }
-        }.execute();
 
-        return output;
+    static String[] engRestaurant = {"I would like to order", "A table for two people",
+            "Could I have the bill please?", "I am allergic to", "Water"};
+    static String[] frRestaurant = {"je voudrais commander", "Une table pour deux personnes",
+            "L’addition, s’il vous plaît", "Je suis allergique à", "L'eau"};
+    static String[] gerRestaurant = {"Ich würde gerne bestellen", "Ein Tisch für zwei Personen",
+            "Könnte ich bitte die Rechnung haben?", "ich bin allergisch gegen", "Wasser"};
+
+    static String[] engAttractions = {"I'm looking for", "What time does it shut?", "Is this suitable for children?",
+            "One ticket please", "Where are the toilets"};
+    static String[] frAttractions = {"Je cherche", "A quelle heure est-ce que cela ferme?", "Ceci convient aux enfants",
+            "Un billet s'il vous plaît", "Où sont les toilettes"};
+    static String[] gerAttractions = {"Ich suche", "Um welche Zeit schließt es", "Ist das für Kinder geeignet?",
+            "Ein Ticket, bitte", "Wo sind die Toiletten"};
+
+    static String[] engSupermarket = {"How much is it?", "Do you take credit cards?", "I'm looking for"};
+    static String[] frSuperMarket = {"Combien ça coûte", "Prenez-vous les cartes de crédit", "Je cherche"};
+    static String[] gerSuperMarket = {"Wie viel kostet das?", "Akzeptieren Sie Kreditkarten", "Ich suche" };
+
+    public static ArrayList<Phrase> initialiseData(int id, String category){
+
+        switch(category) {
+            case "home":
+                if(id == 0){
+                    phrases = createPhraseList(engHome, frHome );
+                } else {
+                    phrases = createPhraseList(engHome, gerHome );
+                }
+                break;
+            case "transport":
+                if(id == 0){
+                    phrases = createPhraseList(engTransport, frTransport );
+                } else {
+                    phrases = createPhraseList(engTransport, gerTransport );
+                }
+
+                break;
+            case "restaurant":
+                if(id == 0){
+                    phrases = createPhraseList(engRestaurant, frRestaurant );
+                } else {
+                    phrases = createPhraseList(engRestaurant, gerRestaurant );
+                }
+
+                break;
+            case "attractions":
+                if(id == 0){
+                    phrases = createPhraseList(engAttractions, frAttractions );
+                } else {
+                    phrases = createPhraseList(engAttractions, gerAttractions );
+                }
+                break;
+            case "supermarket":
+                if(id == 0){
+                    phrases = createPhraseList(engSupermarket, frSuperMarket );
+                } else {
+                    phrases = createPhraseList(engSupermarket, gerSuperMarket );
+                }
+                break;
+        }
+
+        return phrases;
+
+
     }
 
-    private Void setString(String translated) {
-        translatedList.add(translated);
-        return null;
-    }
+
 
 
 
