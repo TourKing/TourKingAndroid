@@ -7,9 +7,4 @@
         android:color="#ffffff" >
     </solid>
 
-    <!-- The radius makes the corners rounded -->
-    <corners
-        android:radius="6dp"   >
-    </corners>
-
 </shape>
