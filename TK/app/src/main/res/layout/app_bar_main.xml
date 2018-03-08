@@ -64,22 +64,6 @@
                         </FrameLayout>
 
                     </FrameLayout>
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#ffffff">
-                        <Button
-                            android:id="@+id/translate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/colorPrimaryDark"
-                            android:textColor="#FFFFFF"
-                            android:layout_marginTop="18dp"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginRight="16dp"
-                            android:text="Translate" />
-                    </FrameLayout>
-
                 </LinearLayout>
             </TabHost>
 
@@ -93,5 +77,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="35dp"
+        android:layout_marginEnd="35dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_translate" />
 
 </RelativeLayout>

@@ -25,7 +25,7 @@ android {
         }
         multiDexEnabled true
         applicationId "com.holly.tourking"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
