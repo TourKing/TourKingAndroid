@@ -153,8 +153,8 @@ public class MainActivity extends AppCompatActivity
                 this.section = "supermarket";
                 break;
             case R.id.nav_settings:
-                this.section = "settings";
-                break;
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
         }
 
         // hide drawer
