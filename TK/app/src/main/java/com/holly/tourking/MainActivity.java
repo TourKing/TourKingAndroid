@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity
         mSpec.setIndicator("To French");
         mTabHost.addTab(mSpec);
 
-        // Tranlating 'from' tab
+        // Translating 'from' tab
         mSpec = mTabHost.newTabSpec("From");
         mSpec.setContent(R.id.from);
         mSpec.setIndicator("From French");
@@ -131,26 +131,33 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         switch (item.getItemId()){
 
             case R.id.nav_home:
                 this.section = "home";
+                toolbar.setTitle("TourKing");
                 break;
             case R.id.nav_transport:
                 this.section = "transport";
+                toolbar.setTitle("Transport");
                 break;
             case R.id.nav_restaurant:
                 this.section = "restaurant";
+                toolbar.setTitle("Restaurant");
                 break;
             case R.id.nav_bar:
                 this.section = "bar";
+                toolbar.setTitle("Bar");
                 break;
             case R.id.nav_attractions:
                 this.section = "attractions";
+                toolbar.setTitle("Attractions");
                 break;
             case R.id.nav_supermarket:
                 this.section = "supermarket";
+                toolbar.setTitle("Supermarket");
                 break;
             case R.id.nav_settings:
                 Intent intent = new Intent(this, SettingsActivity.class);
