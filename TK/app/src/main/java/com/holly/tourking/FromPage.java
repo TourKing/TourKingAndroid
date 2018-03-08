@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FromPage extends Fragment {
@@ -40,15 +41,16 @@ public class FromPage extends Fragment {
         TextView phrase1 = rootView.findViewById(R.id.phrase);
         TextView translation1 = rootView.findViewById(R.id.translation);*/
 
-        List<Phrase> phrases;
-        Phrase.initialiseData();
-        phrases = Phrase.HomePhrases;
+        ArrayList<Phrase> phrases;
+        phrases = Phrase.initialiseData(((MainActivity)getActivity()).getSection());
+        // phrases = Phrase.HomePhrases;
 
         rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
 
-        switch (((MainActivity)getActivity()).getSection()){
+       /* switch (((MainActivity)getActivity()).getSection()){
 
             case "home":
+                Phrase.initialiseData();
                 phrases = Phrase.HomePhrases;
                 rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
@@ -68,7 +70,7 @@ public class FromPage extends Fragment {
                 phrases = Phrase.SuperMarket;
                 rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
-        }
+        }*/
 
         return rv;
     }

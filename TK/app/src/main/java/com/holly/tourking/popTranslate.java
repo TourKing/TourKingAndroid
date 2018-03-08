@@ -215,6 +215,7 @@ public class popTranslate extends Activity implements OnInitListener{
                                 MyOutputText.setText(translation.getTranslatedText().replace("&amp;","&")
                                         .replace("&lt;","<")
                                         .replace("&gt;",">")
+                                        .replace("&#39;","\'")
                                         .replace("&quot;","\""));
                             }
                         }

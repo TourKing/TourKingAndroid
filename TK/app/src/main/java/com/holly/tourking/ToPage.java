@@ -32,6 +32,8 @@ public class ToPage extends Fragment {
                              Bundle savedInstanceState) {
 
 
+       //View rootView = inflater.inflate(R.layout.phrases_page, container, false);
+
         RecyclerView rv = new RecyclerView(getContext());
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -40,34 +42,35 @@ public class ToPage extends Fragment {
         TextView translation1 = rootView.findViewById(R.id.translation);*/
 
         List<Phrase> phrases;
-        Phrase.initialiseData();
-        phrases = Phrase.HomePhrases;
+        phrases = Phrase.initialiseData(((MainActivity)getActivity()).getSection());
+        // phrases = Phrase.HomePhrases;
 
         rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
 
-        switch (((MainActivity)getActivity()).getSection()){
+       /* switch (((MainActivity)getActivity()).getSection()){
 
             case "home":
+                Phrase.initialiseData();
                 phrases = Phrase.HomePhrases;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "transport":
                 phrases = Phrase.Transport;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "restaurant":
                 phrases = Phrase.Restaurant;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "attractions":
                 phrases = Phrase.Attractions;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
             case "supermarket":
                 phrases = Phrase.SuperMarket;
-                rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
+                rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
                 break;
-        }
+        }*/
 
         return rv;
     }
