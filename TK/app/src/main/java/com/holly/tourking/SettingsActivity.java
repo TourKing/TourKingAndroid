@@ -35,11 +35,36 @@ import java.util.List;
  */
 public class SettingsActivity extends AppCompatPreferenceActivity {
 
-    public String currentLanguage = "English";
-    public String currentCode = "en";
+    public static String sourceLanguage ;
+    public String sourceCode = "en";
+    public int sourceID;
 
-    public String translateLanguage = "French";
+    public static String translateLanguage;
     public String translateCode = "fr";
+    public static int translateID;
+
+
+    public static String getTranslateLanguage() {
+        return translateLanguage;
+    }
+
+    public static int getTranslateID(){
+        return translateID;
+    }
+
+    public static void setTranslateLanguage(String value) {
+        switch(value){
+            case "en":
+                translateLanguage = "English";
+                break;
+            case "fr":
+                translateLanguage = "French";
+                break;
+            case "de":
+                translateLanguage = "German";
+                break;
+        }
+    }
 
     /**
      * A preference value change listener that updates the preference's summary
@@ -49,6 +74,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
+            setTranslateLanguage(stringValue);
 
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in

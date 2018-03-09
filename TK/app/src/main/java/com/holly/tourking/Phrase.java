@@ -55,6 +55,14 @@ public class Phrase {
                 }
 
                 break;
+            case "bar":
+                if(id == 0){
+                    phrases = createPhraseList(engBar, frBar );
+                } else {
+                    phrases = createPhraseList(engBar, gerBar );
+                }
+
+                break;
             case "restaurant":
                 if(id == 0){
                     phrases = createPhraseList(engRestaurant, frRestaurant );
@@ -112,6 +120,15 @@ public class Phrase {
     static String[] gerRestaurant = {"Ich würde gerne bestellen", "Ein Tisch für zwei Personen",
             "Könnte ich bitte die Rechnung haben?", "ich bin allergisch gegen", "Wasser"};
 
+    static String[] engBar = {"Hello", "Can I get you a drink", "I’m not a photographer, but I can picture me and you together.",
+            "Are you religious? Because you’re the answer to all my prayers.", " I’m lost. Can you give me directions to your heart?",
+            "Hi, how was heaven when you left it?", "Kiss me if I’m wrong, but dinosaurs still exist, right?"};
+    static String[] frBar = {"Bonjour Mademoiselle", "Puis je vous proposer une boisson", "Je ne suis pas photographe, mais je peux vous imaginer et vous voir ensemble.",
+            "Es-tu religieux? Parce que tu es la réponse à toutes mes prières.", "Je suis perdu. Pouvez-vous me donner des indications pour votre coeur?",
+            "Salut, comment était le paradis quand tu l'as quitté?", "Embrasse-moi si je me trompe, mais les dinosaures existent toujours, non?"};
+    static String[] gerBar = {"Hallo", "Kann ich dir ein Getränk holen", "Ich bin kein Fotograf, aber ich kann mich und dich zusammen vorstellen.",
+            "Bist du religiös? Weil du die Antwort auf all meine Gebete bist.", "Ich bin verloren. Kannst du mir Anweisungen zu deinem Herzen geben?",
+            "Hi, wie war der Himmel, als du es verlassen hast?", "Küss mich, wenn ich falsch liege, aber es gibt immer noch Dinosaurier, oder?"};
 
     static String[] engAttractions = {"I'm looking for", "What time does it shut?", "Is this suitable for children?",
             "One ticket please", "Where are the toilets"};

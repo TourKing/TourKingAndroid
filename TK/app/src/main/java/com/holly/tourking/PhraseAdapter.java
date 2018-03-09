@@ -19,12 +19,15 @@ import java.util.List;
 public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context mContext;
     private List<Phrase> phrases;
-    private int toFrom;
+    private int toFrom, lang;
+    public String section;
 
     public class PhraseViewHolder extends RecyclerView.ViewHolder {
         public CardView cv;
         public TextView phrase, translation;
         public ImageButton speakButton;
+
+        public ImageView flag;
 
         public PhraseViewHolder(View view) {
             super(view);
@@ -50,10 +53,12 @@ public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
 
-    public PhraseAdapter(Context mContext, List<Phrase> phrases, int toFrom){
+    public PhraseAdapter(Context mContext, List<Phrase> phrases, String section, int toFrom, int lang){
         this.mContext = mContext;
         this.phrases = phrases;
         this.toFrom = toFrom;
+        this.section = section;
+        this.lang = lang;
     }
 
     private final int STATIC_CARD = 0;
@@ -68,24 +73,30 @@ public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-    public boolean isToOrFrom(int toFrom) {
+    public int isToOrFrom(int toFrom) {
         /// 1 is TO, 0 is FROM
         if(toFrom == 1) {
-            return true;
+            return 1;
         } else {
-            return false;
+            return 0;
         }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
-        if(getItemViewType(viewType) == STATIC_CARD){
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggested_card, parent, false);
-            return new SuggestedViewHolder(view);
-        } else{
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.phrases_page, parent, false);
-            return new PhraseViewHolder(itemView);
+        if (getItemViewType(viewType) == STATIC_CARD) {
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggested_card, parent, false);
+                SuggestedViewHolder v = new SuggestedViewHolder(view);
+                return v;
+        } else {
+            if (lang == 1) {
+                View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.phrases_page_ger, parent, false);
+                return new PhraseViewHolder(itemView);
+            } else {
+                View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.phrases_page_fr, parent, false);
+                return new PhraseViewHolder(itemView);
+            }
         }
     }
 
@@ -95,7 +106,7 @@ public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         if (getItemViewType(position) == DYNAMIC_CARD) {
             PhraseViewHolder mHolder = (PhraseViewHolder) holder;
-            if(isToOrFrom(toFrom)) {
+            if(isToOrFrom(toFrom) == 1) {
                 mHolder.phrase.setText(phrase.phrase);
                 mHolder.translation.setText(phrase.translation);
             } else {

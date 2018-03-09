@@ -30,14 +30,16 @@ public class ToPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        String section = ((MainActivity)getActivity()).getSection();
+        int lang = 1;
 
         RecyclerView rv = new RecyclerView(getContext());
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
         List<Phrase> phrases;
-        phrases = Phrase.initialiseData(1, ((MainActivity)getActivity()).getSection());
+        phrases = Phrase.initialiseData(lang, section);
 
-        rv.setAdapter(new PhraseAdapter(getContext(), phrases, 1));
+        rv.setAdapter(new PhraseAdapter(getContext(), phrases,section, 1, lang));
         return rv;
     }
 }

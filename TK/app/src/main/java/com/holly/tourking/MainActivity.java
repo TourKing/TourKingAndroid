@@ -41,8 +41,7 @@ public class MainActivity extends AppCompatActivity
     private int MY_DATA_CHECK_CODE = 0;
     private static TextToSpeech myTTS;
 
-    public static final String sourceLang = "ENGLISH";
-    public static final String targetLang = "GERMAN";
+    private String translateLang = "German";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,13 +80,13 @@ public class MainActivity extends AppCompatActivity
         // Translating 'to' tab
         TabHost.TabSpec mSpec = mTabHost.newTabSpec("To");
         mSpec.setContent(R.id.to);
-        mSpec.setIndicator("To " + targetLang);
+        mSpec.setIndicator("To " + translateLang);
         mTabHost.addTab(mSpec);
 
         // Translating 'from' tab
         mSpec = mTabHost.newTabSpec("From");
         mSpec.setContent(R.id.from);
-        mSpec.setIndicator("From "+ targetLang);
+        mSpec.setIndicator("From "+ translateLang);
         mTabHost.addTab(mSpec);
 
         // View on To tab on launch
@@ -178,6 +177,7 @@ public class MainActivity extends AppCompatActivity
                 toolbar.setTitle("Supermarket");
                 break;
             case R.id.nav_settings:
+                this.section = "settings";
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
         }
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
-        // move to To tab of selected section
+        // move to To tab of selected section unless it's settings
         mTabHost.setCurrentTab(0);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content, ToPage.newInstance());
