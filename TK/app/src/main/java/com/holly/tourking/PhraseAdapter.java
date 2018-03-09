@@ -86,9 +86,9 @@ public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
         if (getItemViewType(viewType) == STATIC_CARD) {
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggested_card, parent, false);
-                SuggestedViewHolder v = new SuggestedViewHolder(view);
-                return v;
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggested_card, parent, false);
+            SuggestedViewHolder v = new SuggestedViewHolder(view);
+            return v;
         } else {
             if (lang == 1) {
                 View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.phrases_page_ger, parent, false);
@@ -100,23 +100,28 @@ public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
+
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         final Phrase phrase = phrases.get(position);
+        String toUse = "";
 
         if (getItemViewType(position) == DYNAMIC_CARD) {
             PhraseViewHolder mHolder = (PhraseViewHolder) holder;
-            if(isToOrFrom(toFrom) == 1) {
+            if(toFrom == 1) {
                 mHolder.phrase.setText(phrase.phrase);
                 mHolder.translation.setText(phrase.translation);
+                toUse = phrase.translation;
             } else {
                 mHolder.phrase.setText(phrase.translation);
                 mHolder.translation.setText(phrase.phrase);
+                toUse = phrase.phrase;
             }
+            final String finalToUse = toUse;
             mHolder.speakButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MainActivity.beenWaiting(phrase.translation, 1);
+                    MainActivity.beenWaiting(finalToUse, toFrom);
                 }
             });
         }

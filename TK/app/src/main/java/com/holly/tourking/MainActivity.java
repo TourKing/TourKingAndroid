@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity
 
     public static void beenWaiting(String talk, Integer lang){
         if (lang == 0){
-            myTTS.setLanguage(Locale.ENGLISH);
+            myTTS.setLanguage(Locale.UK);
         }else{
             myTTS.setLanguage(Locale.GERMAN);
         }
