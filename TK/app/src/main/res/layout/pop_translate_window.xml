@@ -61,7 +61,7 @@
         android:height="150dp"
         android:background="@drawable/output_text"
         android:ems="10"
-        android:hint="@string/transto"
+        android:hint="French"
         android:paddingLeft="6dp"
         android:paddingTop="6dp"
         android:textColor="#FFFFFF"

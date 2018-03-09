@@ -35,7 +35,7 @@
                 android:textSize="20sp"
                 android:textColor="#000000"
                 android:paddingTop="6dp"
-                android:text="Notre Dame Cathedral, Paris"
+                android:text="Notre Dame, Paris"
                 android:layout_below="@id/museum"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"/>

@@ -62,7 +62,7 @@ public class popTranslate extends Activity implements OnInitListener{
     Button myListenButton;
 
     public String sourceLang = "en";
-    public String targetLang = "ger";
+    public String targetLang = "fr";
     boolean langUse = true;
 
 
@@ -190,7 +190,7 @@ public class popTranslate extends Activity implements OnInitListener{
 
     public void onInit(int initStatus) {
         if (initStatus == TextToSpeech.SUCCESS) {
-            myTTS.setLanguage(Locale.GERMAN);
+            myTTS.setLanguage(Locale.FRENCH);
         }else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
         }
@@ -200,7 +200,7 @@ public class popTranslate extends Activity implements OnInitListener{
         if ( langUse == false){
             myTTS.setLanguage(Locale.ENGLISH);
         }else{
-            myTTS.setLanguage(Locale.GERMAN);
+            myTTS.setLanguage(Locale.FRENCH);
         }
         myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
     }
