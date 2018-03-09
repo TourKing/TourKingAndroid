@@ -18,16 +18,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.view.View;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
+import android.content.Intent;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements OnInitListener, NavigationView.OnNavigationItemSelectedListener {
 
     private TabHost mTabHost;
 
     private String section = "home";
+    private int MY_DATA_CHECK_CODE = 0;
+    private static TextToSpeech myTTS;
+
+    public static final String sourceLang = "ENGLISH";
+    public static final String targetLang = "GERMAN";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +52,9 @@ public class MainActivity extends AppCompatActivity
         toolbar.setTitle("TourKing");
         setSupportActionBar(toolbar);
 
+        Intent checkTTSIntent = new Intent();
+        checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
 
         final FloatingActionButton button = findViewById(R.id.translate);
         button.setOnClickListener(new View.OnClickListener() {
@@ -63,13 +81,13 @@ public class MainActivity extends AppCompatActivity
         // Translating 'to' tab
         TabHost.TabSpec mSpec = mTabHost.newTabSpec("To");
         mSpec.setContent(R.id.to);
-        mSpec.setIndicator("To French");
+        mSpec.setIndicator("To " + targetLang);
         mTabHost.addTab(mSpec);
 
         // Translating 'from' tab
         mSpec = mTabHost.newTabSpec("From");
         mSpec.setContent(R.id.from);
-        mSpec.setIndicator("From French");
+        mSpec.setIndicator("From "+ targetLang);
         mTabHost.addTab(mSpec);
 
         // View on To tab on launch
@@ -180,4 +198,36 @@ public class MainActivity extends AppCompatActivity
     public String getSection(){
         return this.section;
     }
+
+    public static void beenWaiting(String talk, Integer lang){
+        if (lang == 0){
+            myTTS.setLanguage(Locale.ENGLISH);
+        }else{
+            myTTS.setLanguage(Locale.GERMAN);
+        }
+        myTTS.speak(talk, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MY_DATA_CHECK_CODE) {
+            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+                myTTS = new TextToSpeech(this, this);
+            }
+            else {
+                Intent installTTSIntent = new Intent();
+                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivity(installTTSIntent);
+            }
+        }
+    }
+
+    public void onInit(int initStatus) {
+        if (initStatus == TextToSpeech.SUCCESS) {
+            myTTS.setLanguage(Locale.GERMAN);
+        }else if (initStatus == TextToSpeech.ERROR) {
+            Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

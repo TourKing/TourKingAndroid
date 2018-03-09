@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -19,11 +20,14 @@ public class FromPhraseAdapter extends RecyclerView.Adapter<FromPhraseAdapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView phrase, translation;
+        public ImageButton speakButton;
+
 
         public MyViewHolder(View view) {
             super(view);
             phrase = (TextView) view.findViewById(R.id.phrase);
             translation = (TextView) view.findViewById(R.id.translation);
+            speakButton = (ImageButton) itemView.findViewById(R.id.SpeakButton);
         }
     }
 
@@ -42,9 +46,15 @@ public class FromPhraseAdapter extends RecyclerView.Adapter<FromPhraseAdapter.My
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        Phrase phrase = phrases.get(position);
+        final Phrase phrase = phrases.get(position);
         holder.phrase.setText(phrase.translation);
         holder.translation.setText(phrase.phrase);
+        holder.speakButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                MainActivity.beenWaiting(phrase.phrase, 0);
+            }
+        });
     }
 
     @Override

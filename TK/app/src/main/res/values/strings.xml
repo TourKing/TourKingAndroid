@@ -23,6 +23,7 @@
     <string name="speak_text">Speak</string>
     <string name="listen_text">Listen</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="transto">German</string>
 
     <!-- Strings related to Settings -->
 

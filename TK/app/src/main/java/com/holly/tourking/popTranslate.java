@@ -51,6 +51,7 @@ public class popTranslate extends Activity implements OnInitListener{
     ImageButton MySpeakButton;
     TextView MyOutputText;
     ImageButton MyListenButton;
+    Button MySwitchButton;
 
     Translate translate;
     private int MY_DATA_CHECK_CODE = 0;
@@ -59,6 +60,12 @@ public class popTranslate extends Activity implements OnInitListener{
 
     private static final int REQ_CODE_SPEECH_INPUT = 100;
     Button myListenButton;
+
+    public String sourceLang = "en";
+    public String targetLang = "ger";
+    boolean langUse = true;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +91,7 @@ public class popTranslate extends Activity implements OnInitListener{
         MySpeakButton = findViewById(R.id.SpeakButton);
         MyListenButton = findViewById(R.id.listenButton);
         MyOutputText = findViewById(R.id.translate_output);
+        MySwitchButton = findViewById(R.id.switchButton);
 
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
@@ -91,6 +99,7 @@ public class popTranslate extends Activity implements OnInitListener{
         MyTranslateButton.setOnClickListener(MyTranslateButtonOnClickListener);
         MySpeakButton.setOnClickListener(MySpeakButtonOnClickListener);
         MyListenButton.setOnClickListener(MyListenButtonOnClickListener);
+        MySwitchButton.setOnClickListener(MySwitchButtonOnClickListener);
 
 
     }
@@ -104,7 +113,7 @@ public class popTranslate extends Activity implements OnInitListener{
             InputString = MyInputText.getText().toString();
 
             try {
-                OutputString = textTranslate(InputString, "en", "fr");
+                OutputString = textTranslate(InputString, sourceLang, targetLang);
             } catch (Exception ex) {
                 ex.printStackTrace();
                 OutputString = "There was an error trying to translate your phrase. Please ensure you are connected to the internet.";
@@ -124,6 +133,18 @@ public class popTranslate extends Activity implements OnInitListener{
                 speakWords(output);
             }
 
+        }
+    };
+
+    private Button.OnClickListener MySwitchButtonOnClickListener = new Button.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            String og_source = sourceLang;
+            sourceLang = targetLang;
+            targetLang = og_source;
+
+            langUse = !langUse;
         }
     };
 
@@ -169,13 +190,18 @@ public class popTranslate extends Activity implements OnInitListener{
 
     public void onInit(int initStatus) {
         if (initStatus == TextToSpeech.SUCCESS) {
-            myTTS.setLanguage(Locale.FRANCE);
+            myTTS.setLanguage(Locale.GERMAN);
         }else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
         }
     }
 
     private void speakWords(String speech) {
+        if ( langUse == false){
+            myTTS.setLanguage(Locale.ENGLISH);
+        }else{
+            myTTS.setLanguage(Locale.GERMAN);
+        }
         myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
     }
 
