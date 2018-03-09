@@ -38,7 +38,7 @@ public class FromPage extends Fragment {
         List<Phrase> phrases;
         phrases = Phrase.initialiseData(1, ((MainActivity)getActivity()).getSection());
 
-        rv.setAdapter(new FromPhraseAdapter(getContext(), phrases));
+        rv.setAdapter(new PhraseAdapter(getContext(), phrases, 0));
         return rv;
     }
 }

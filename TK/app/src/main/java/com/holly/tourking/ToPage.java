@@ -37,7 +37,7 @@ public class ToPage extends Fragment {
         List<Phrase> phrases;
         phrases = Phrase.initialiseData(1, ((MainActivity)getActivity()).getSection());
 
-        rv.setAdapter(new ToPhraseAdapter(getContext(), phrases));
+        rv.setAdapter(new PhraseAdapter(getContext(), phrases, 1));
         return rv;
     }
 }

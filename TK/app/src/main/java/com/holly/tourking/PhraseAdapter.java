@@ -8,22 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.view.View;
 
 import java.util.List;
 
 /**
- * Created by Lucy on 08/03/2018.
+ * Created by Lucy on 09/03/2018.
  */
 
-public class ToPhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private Context mContext;
     private List<Phrase> phrases;
+    private int toFrom;
 
     public class PhraseViewHolder extends RecyclerView.ViewHolder {
         public CardView cv;
@@ -54,9 +50,10 @@ public class ToPhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
 
-    public ToPhraseAdapter(Context mContext, List<Phrase> phrases){
+    public PhraseAdapter(Context mContext, List<Phrase> phrases, int toFrom){
         this.mContext = mContext;
         this.phrases = phrases;
+        this.toFrom = toFrom;
     }
 
     private final int STATIC_CARD = 0;
@@ -68,6 +65,15 @@ public class ToPhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             return STATIC_CARD;
         } else {
             return DYNAMIC_CARD;
+        }
+    }
+
+    public boolean isToOrFrom(int toFrom) {
+        /// 1 is TO, 0 is FROM
+        if(toFrom == 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -89,9 +95,13 @@ public class ToPhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         if (getItemViewType(position) == DYNAMIC_CARD) {
             PhraseViewHolder mHolder = (PhraseViewHolder) holder;
-
-            mHolder.phrase.setText(phrase.phrase);
-            mHolder.translation.setText(phrase.translation);
+            if(isToOrFrom(toFrom)) {
+                mHolder.phrase.setText(phrase.phrase);
+                mHolder.translation.setText(phrase.translation);
+            } else {
+                mHolder.phrase.setText(phrase.translation);
+                mHolder.translation.setText(phrase.phrase);
+            }
             mHolder.speakButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
