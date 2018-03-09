@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
     private int MY_DATA_CHECK_CODE = 0;
     private static TextToSpeech myTTS;
 
-    private String translateLang = "German";
+    private String translateLang = "French";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

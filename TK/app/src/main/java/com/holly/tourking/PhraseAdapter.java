@@ -86,9 +86,15 @@ public class PhraseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
         if (getItemViewType(viewType) == STATIC_CARD) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggested_card, parent, false);
-            SuggestedViewHolder v = new SuggestedViewHolder(view);
-            return v;
+            if(lang == 1){
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggested_card_ger, parent, false);
+                SuggestedViewHolder v = new SuggestedViewHolder(view);
+                return v;
+            } else {
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.suggested_card_fr, parent, false);
+                SuggestedViewHolder v = new SuggestedViewHolder(view);
+                return v;
+            }
         } else {
             if (lang == 1) {
                 View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.phrases_page_ger, parent, false);

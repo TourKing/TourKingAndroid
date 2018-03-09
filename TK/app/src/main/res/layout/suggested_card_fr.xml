@@ -26,7 +26,7 @@
                 android:id="@+id/museum"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:src="@drawable/bauhaus" />
+                android:src="@drawable/notre_dame" />
 
             <TextView
                 android:id="@+id/phrase2"
@@ -35,7 +35,7 @@
                 android:textSize="20sp"
                 android:textColor="#000000"
                 android:paddingTop="6dp"
-                android:text="Bauhaus, Berlin"
+                android:text="Notre Dame Cathedral, Paris"
                 android:layout_below="@id/museum"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"/>
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/phrase2"
-                android:text="Museum"
+                android:text="Cathedral"
                 android:textSize="14sp"
                 android:textColor="#9a9a9a"
                 android:paddingLeft="20dp"
@@ -57,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/translation2"
                 android:text="QUICK PHRASES"
+                android:clickable="true"
                 android:textSize="14sp"
                 android:textColor="#ed6337"
                 android:paddingTop="10dp"

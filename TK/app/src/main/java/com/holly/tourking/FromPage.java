@@ -32,7 +32,7 @@ public class FromPage extends Fragment {
                              Bundle savedInstanceState) {
 
         String section = ((MainActivity)getActivity()).getSection();
-        int lang = 1;
+        int lang = 0;
 
         RecyclerView rv = new RecyclerView(getContext());
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
