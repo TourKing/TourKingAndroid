@@ -1,5 +1,5 @@
 # TourKing
-[![Tour_King_Promo.jpg](https://s9.postimg.org/n6ucc88n3/Tour_King_Promo.jpg)](https://postimg.org/image/cwrxczirf/)
+[![Tour_King_Promo.jpg](https://s9.postimg.org/n6ucc88n3/Tour_King_Promo.jpg)](https://github.com/TourKing)
 
 The objective for this project was to create a mobile application interface to accommodate useful, contextual, language translation - all whilst delivering exceptional user experience.
 
