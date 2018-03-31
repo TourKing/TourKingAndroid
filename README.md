@@ -27,6 +27,7 @@ The final product was to be a prototype application which implemented our chosen
 Improvements on the initial design:
 * Based on user testing, the translate button initially in the mockups annyoingly would get lost when scrolling the page, so a FAB was introduced to open the translate popup. 
 * Speech-to-text button added alongside each card, allows user to "speak" quicker than going through translation section.
+* A login screen was added.
 
 If continued into future development, realtime suggestions for phrases and locations would be provided to the user.
 
