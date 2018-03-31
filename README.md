@@ -22,7 +22,13 @@ First initial mockups were developed on Photoshop, making use of the [Material D
 <img src="https://s17.postimg.org/kgj6xm7yn/Screenshot_20180312-113719.png" alt="Slideout" width="200px">
 <img src="https://s17.postimg.org/5kknq0ou7/Screenshot_20180312-113724.png" alt="Translate" width="200px">
 
-The final product was to be a prototype application which implemented our chosen design. The prototype itself made use of the Google Translate API, as well as native Android text-to-speech and speech-to-text classes. The application itself was hardcoded a location, hence the imagery of Bauhaus in Berlin. If continued into future development, realtime suggestions for phrases and locations would be provided to the user.
+The final product was to be a prototype application which implemented our chosen design. The prototype itself made use of the Google Translate API, as well as native Android text-to-speech and speech-to-text classes. The application itself was hardcoded a location, hence the imagery of Bauhaus in Berlin. 
+
+Improvements on the initial design:
+* Based on user testing, the translate button initially in the mockups annyoingly would get lost when scrolling the page, so a FAB was introduced to open the translate popup. 
+* Speech-to-text button added alongside each card, allows user to "speak" quicker than going through translation section.
+
+If continued into future development, realtime suggestions for phrases and locations would be provided to the user.
 
 Since a prototype application, no .apk file can be downloaded for usage. Please feel free to clone the repo and import the project into Android Studio.
 
