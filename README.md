@@ -31,7 +31,7 @@ Improvements on the initial design:
 
 If continued into future development, realtime suggestions for phrases and locations would be provided to the user.
 
-Since a prototype application, no .apk file can be downloaded for usage. Please feel free to clone the repo and import the project into Android Studio.
+Since a prototype application, we will not be providing an .apk file for usage - but please feel free to clone the repo and import the project into Android Studio.
 
 Developers:
 
