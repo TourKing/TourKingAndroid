@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Tue Feb 27 11:26:21 GMT 2018
-0.baseType=DIRECTORY
-0.base=/Users/craig/Documents/MobHCI/tk-app/tourking/app/build/intermediates/assets/debug
-0.path=fonts/materialdrawerfont-font-v5.0.0.ttf
-0.set=ASSET
-count=1
